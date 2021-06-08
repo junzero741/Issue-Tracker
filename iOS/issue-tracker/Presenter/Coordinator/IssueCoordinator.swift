@@ -14,7 +14,7 @@ class IssueCoordinator: NSObject, Coordinator {
     override init(){
         let example : ViewController = UIApplication.shared.windows[0].rootViewController! as! ViewController
         self.navigationController = UINavigationController(rootViewController: example)
-        navigationController.tabBarItem = UITabBarItem(title: "검색", image: UIImage(named: "search"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "예시", image: UIImage.init(systemName: "exclamationmark.circle"), tag: 0)
         super.init()
         example.coordinator = self
     }

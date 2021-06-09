@@ -38,7 +38,13 @@
                         <viewLayoutGuide key="safeArea" id="vSY-xH-kzW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ym5-SR-FSk"/>
+                    <navigationItem key="navigationItem" id="ym5-SR-FSk">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="hAk-dr-KKr">
+                            <connections>
+                                <action selector="back:" destination="6ZE-BG-B9L" id="Fv0-tQ-rpx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke6-UO-JdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

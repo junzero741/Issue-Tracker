@@ -12,7 +12,6 @@ class IssueCoordinator: NSObject, Coordinator {
     var navigationController: UINavigationController
     
     override init() {
-        
         let example = UIStoryboard(name: "TempFirstView", bundle: nil).instantiateViewController(withIdentifier: "temp") as! TempFirstViewController
         
         self.navigationController = UINavigationController(rootViewController: example)

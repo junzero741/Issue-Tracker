@@ -9,13 +9,16 @@ import UIKit
 
 class TempFirstViewController: UIViewController {
     
-    var coordinator : Coordinator!
+    weak var coordinator : Coordinator!
+    
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func goToTabBar(_ sender: Any) {
         let mainTabBarController = MainTabBarController()
         mainTabBarController.modalPresentationStyle = .fullScreen
         self.present(mainTabBarController, animated: true)
-//        self.show(mainTabBarController, sender: nil)
     }
     
     @IBAction func pushSecondView(_ sender: Any) {

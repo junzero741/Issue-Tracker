@@ -11,15 +11,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let mainTabBarController = MainTabBarController()
+//        let mainTabBarController = MainTabBarController()
+        let tempFirstStoryboard = UIStoryboard(name: "TempFirstView", bundle: nil)
+        let tempVC = tempFirstStoryboard.instantiateViewController(withIdentifier: "temp")
+        
         
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
-        appWindow.rootViewController = mainTabBarController
+//        appWindow.rootViewController = mainTabBarController
+        appWindow.rootViewController = tempVC
         appWindow.makeKeyAndVisible()
         window = appWindow
     }

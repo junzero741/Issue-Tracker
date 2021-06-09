@@ -8,12 +8,12 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-    func pushToView(_ navigationController: UINavigationController, title: String)
+    func pushToView(_ navigationController: UINavigationController, title: String, vc: UIViewController)
 }
 
 extension Coordinator {
-  func pushToView(_ navigationController: UINavigationController, title: String) {
-    let vc = navigationController
+    func pushToView(_ navigationController: UINavigationController, title: String, vc: UIViewController) {
+    let vc = vc
     vc.title = title
     navigationController.pushViewController(vc, animated: true)
   }

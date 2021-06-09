@@ -16,6 +16,9 @@
 		B0446883266F16FC00DAD616 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446882266F16FC00DAD616 /* Coordinator.swift */; };
 		B0446887266F3A7300DAD616 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446886266F3A7200DAD616 /* MainTabBarController.swift */; };
 		B044688A266F423D00DAD616 /* IssueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446889266F423D00DAD616 /* IssueCoordinator.swift */; };
+		B044688E266F548700DAD616 /* TempFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044688D266F548700DAD616 /* TempFirstViewController.swift */; };
+		B0446893266F55AA00DAD616 /* TempFirstView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0446892266F55AA00DAD616 /* TempFirstView.storyboard */; };
+		B0446896266F691D00DAD616 /* ExampleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446895266F691C00DAD616 /* ExampleCoordinator.swift */; };
 		BCCEBE1E1668EC814AFFBE24 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,9 @@
 		B0446882266F16FC00DAD616 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B0446886266F3A7200DAD616 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B0446889266F423D00DAD616 /* IssueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCoordinator.swift; sourceTree = "<group>"; };
+		B044688D266F548700DAD616 /* TempFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFirstViewController.swift; sourceTree = "<group>"; };
+		B0446892266F55AA00DAD616 /* TempFirstView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TempFirstView.storyboard; sourceTree = "<group>"; };
+		B0446895266F691C00DAD616 /* ExampleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 		B044687F266F168000DAD616 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B0446891266F54C200DAD616 /* View */,
 				B0446881266F16EA00DAD616 /* Coordinator */,
 				B0446880266F16DF00DAD616 /* Controller */,
 			);
@@ -111,6 +118,7 @@
 			children = (
 				10CE4D9D266EFB5700FBD593 /* ViewController.swift */,
 				B0446886266F3A7200DAD616 /* MainTabBarController.swift */,
+				B044688D266F548700DAD616 /* TempFirstViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,8 +128,17 @@
 			children = (
 				B0446882266F16FC00DAD616 /* Coordinator.swift */,
 				B0446889266F423D00DAD616 /* IssueCoordinator.swift */,
+				B0446895266F691C00DAD616 /* ExampleCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		B0446891266F54C200DAD616 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0446892266F55AA00DAD616 /* TempFirstView.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0446893266F55AA00DAD616 /* TempFirstView.storyboard in Resources */,
 				10CE4DA6266EFB5700FBD593 /* LaunchScreen.storyboard in Resources */,
 				10CE4DA3266EFB5700FBD593 /* Assets.xcassets in Resources */,
 				10CE4DA1266EFB5700FBD593 /* Main.storyboard in Resources */,
@@ -241,8 +259,10 @@
 				B044688A266F423D00DAD616 /* IssueCoordinator.swift in Sources */,
 				B0446883266F16FC00DAD616 /* Coordinator.swift in Sources */,
 				10CE4D9E266EFB5700FBD593 /* ViewController.swift in Sources */,
+				B0446896266F691D00DAD616 /* ExampleCoordinator.swift in Sources */,
 				B0446887266F3A7300DAD616 /* MainTabBarController.swift in Sources */,
 				10CE4D9A266EFB5700FBD593 /* AppDelegate.swift in Sources */,
+				B044688E266F548700DAD616 /* TempFirstViewController.swift in Sources */,
 				10CE4D9C266EFB5700FBD593 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

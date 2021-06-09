@@ -11,15 +11,14 @@ class MainTabBarController: UITabBarController {
     
     let issue = IssueCoordinator()
     let example = ExampleCoordinator()
-        //      let label = LabelCoordinator()
+//      let label = LabelCoordinator()
 //      let mileStone = MileStoneCoordinator()
 //      let account = AccountCoordinator()
       
-
-      override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllers()
-      }
+    }
     
     func setupViewControllers() {
         self.viewControllers = [issue.navigationController, example.navigationController]//, label.navigationController, mileStone.navigationController, account.navigationController]

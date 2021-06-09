@@ -13,16 +13,15 @@ class TempFirstViewController: UIViewController {
     
     @IBAction func goToTabBar(_ sender: Any) {
         let mainTabBarController = MainTabBarController()
+        mainTabBarController.modalPresentationStyle = .fullScreen
+        self.present(mainTabBarController, animated: true)
+//        self.show(mainTabBarController, sender: nil)
+    }
+    
+    @IBAction func pushSecondView(_ sender: Any) {
+        let corrdi = self.coordinator as? IssueCoordinator
         
-        let tempFirstStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tempVC = tempFirstStoryboard.instantiateViewController(withIdentifier: "main")
-        
-        print(mainTabBarController.viewControllers)
-        
-        let nv = mainTabBarController.viewControllers!.first!
-        
-        mainTabBarController.example.pushIssueView(nv as! UINavigationController)
-        
+        corrdi?.pushExampleView()
     }
     
     override func viewDidLoad() {

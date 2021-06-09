@@ -19,6 +19,8 @@
 		B044688E266F548700DAD616 /* TempFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044688D266F548700DAD616 /* TempFirstViewController.swift */; };
 		B0446893266F55AA00DAD616 /* TempFirstView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0446892266F55AA00DAD616 /* TempFirstView.storyboard */; };
 		B0446896266F691D00DAD616 /* ExampleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446895266F691C00DAD616 /* ExampleCoordinator.swift */; };
+		B04468B22670C76F00DAD616 /* TempSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04468B12670C76E00DAD616 /* TempSecondViewController.swift */; };
+		B04468B92670C78D00DAD616 /* TempSecondView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04468B82670C78D00DAD616 /* TempSecondView.storyboard */; };
 		BCCEBE1E1668EC814AFFBE24 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		B044688D266F548700DAD616 /* TempFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempFirstViewController.swift; sourceTree = "<group>"; };
 		B0446892266F55AA00DAD616 /* TempFirstView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TempFirstView.storyboard; sourceTree = "<group>"; };
 		B0446895266F691C00DAD616 /* ExampleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCoordinator.swift; sourceTree = "<group>"; };
+		B04468B12670C76E00DAD616 /* TempSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempSecondViewController.swift; sourceTree = "<group>"; };
+		B04468B82670C78D00DAD616 /* TempSecondView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TempSecondView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				10CE4D9D266EFB5700FBD593 /* ViewController.swift */,
 				B0446886266F3A7200DAD616 /* MainTabBarController.swift */,
 				B044688D266F548700DAD616 /* TempFirstViewController.swift */,
+				B04468B12670C76E00DAD616 /* TempSecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				B0446892266F55AA00DAD616 /* TempFirstView.storyboard */,
+				B04468B82670C78D00DAD616 /* TempSecondView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 			files = (
 				B0446893266F55AA00DAD616 /* TempFirstView.storyboard in Resources */,
 				10CE4DA6266EFB5700FBD593 /* LaunchScreen.storyboard in Resources */,
+				B04468B92670C78D00DAD616 /* TempSecondView.storyboard in Resources */,
 				10CE4DA3266EFB5700FBD593 /* Assets.xcassets in Resources */,
 				10CE4DA1266EFB5700FBD593 /* Main.storyboard in Resources */,
 			);
@@ -257,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B044688A266F423D00DAD616 /* IssueCoordinator.swift in Sources */,
+				B04468B22670C76F00DAD616 /* TempSecondViewController.swift in Sources */,
 				B0446883266F16FC00DAD616 /* Coordinator.swift in Sources */,
 				10CE4D9E266EFB5700FBD593 /* ViewController.swift in Sources */,
 				B0446896266F691D00DAD616 /* ExampleCoordinator.swift in Sources */,

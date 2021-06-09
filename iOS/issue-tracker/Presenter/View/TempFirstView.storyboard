@@ -17,12 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-Zc-ljg">
-                                <rect key="frame" x="157" y="354" width="119" height="63"/>
+                                <rect key="frame" x="108" y="354" width="218" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="모달풀스크린"/>
                                 <connections>
                                     <action selector="goToTabBar:" destination="6ZE-BG-B9L" eventType="touchUpInside" id="SRy-G2-B5E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l9w-VQ-EaR">
+                                <rect key="frame" x="124" y="542" width="120" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <state key="normal" title="푸쉬뷰"/>
+                                <connections>
+                                    <action selector="pushSecondView:" destination="6ZE-BG-B9L" eventType="touchUpInside" id="LNJ-AK-LgX"/>
                                 </connections>
                             </button>
                         </subviews>

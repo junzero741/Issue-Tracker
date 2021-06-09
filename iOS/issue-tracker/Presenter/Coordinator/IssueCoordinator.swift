@@ -11,17 +11,18 @@ class IssueCoordinator: NSObject, Coordinator {
     
     var navigationController: UINavigationController
     
-    let example = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main") as! ViewController
-    
-    override init(){
+    override init() {
+        
+        let example = UIStoryboard(name: "TempFirstView", bundle: nil).instantiateViewController(withIdentifier: "temp") as! TempFirstViewController
         
         self.navigationController = UINavigationController(rootViewController: example)
-        navigationController.tabBarItem = UITabBarItem(title: "예시", image: UIImage.init(systemName: "exclamationmark.circle"), tag: 0)
+        navigationController.tabBarItem = UITabBarItem(title: "메인", image: UIImage.init(systemName: "exclamationmark.circle"), tag: 0)
         super.init()
         example.coordinator = self
     }
     
-    func pushIssueView(_ navigationController: UINavigationController) {
-        pushToView(navigationController, title: "이슈", vc: example)
+    func pushExampleView() {
+        let example = UIStoryboard(name: "TempSecondView", bundle: nil).instantiateViewController(withIdentifier: "second") as! TempSecondViewController
+        pushToView(self.navigationController, title: "둘째", vc: example)
     }
 }

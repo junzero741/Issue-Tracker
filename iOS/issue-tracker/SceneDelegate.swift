@@ -14,14 +14,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let tempFirstStoryboard = UIStoryboard(name: "TempFirstView", bundle: nil)
-        let tempVC = tempFirstStoryboard.instantiateViewController(withIdentifier: "temp")
+        let tempVC = MainTabBarController()
+        setChildView(to: tempVC)
         
         let appWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
         appWindow.windowScene = windowScene
         appWindow.rootViewController = tempVC
         appWindow.makeKeyAndVisible()
         window = appWindow
+    }
+    
+    private func setChildView(to: MainTabBarController) {
+        to.setChildViewControllers(with: IssueCoordinator().navigationController, ExampleCoordinator().navigationController)
     }
 
 }

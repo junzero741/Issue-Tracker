@@ -10,6 +10,7 @@ import UIKit
 class TempFirstViewController: UIViewController {
     
     weak var coordinator : Coordinator!
+    private var isLogin = false
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -29,5 +30,17 @@ class TempFirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //아래에 로그인 뷰
+        if self.isLogin != true {
+            self.isLogin = true
+            let tempVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "main")
+            
+            tempVC.modalPresentationStyle = .fullScreen
+            self.present(tempVC, animated: true)
+        }
     }
 }

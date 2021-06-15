@@ -47,7 +47,9 @@ class LoginViewController: UIViewController {
         controller.performRequests()
     }
     
-    @objc func handleLogInWithGithubID(){
+    @objc func handleLogInWithGithubID() {
+        let url = LogInEndPoint.init().urlFromEndPoint()
+        UIApplication.shared.open(url)
         
     }
 

@@ -49,8 +49,26 @@ class LoginViewController: UIViewController {
     
     @objc func handleLogInWithGithubID() {
         let url = LogInEndPoint.init().urlFromEndPoint()
-        UIApplication.shared.open(url)
-        
+        let scheme = "issue-tracker"
+        let authenticationSession = ASWebAuthenticationSession
+            .init(url: url,
+                  callbackURLScheme: scheme,
+                  completionHandler: { (url:URL?,error:Error?) in
+                    guard error == nil,
+                          let callBackURL = url,
+                          let queryItems = URLComponents(string: callBackURL.absoluteString)?.queryItems,
+                          let code = queryItems.first(where: { $0.name == "code" })?.value else {
+                        print("An error occurred when attempting to sign in.")
+                        return
+                    }
+                    self.requestGithubToken(code: code)
+                  })
+        authenticationSession.presentationContextProvider = self
+        authenticationSession.start()
+    }
+    
+    private func requestGithubToken(code: String) {
+        print(code)
     }
 
     private func configureButton(){
@@ -92,5 +110,12 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle Error
         print(error.localizedDescription)
+    }
+}
+
+extension LoginViewController: ASWebAuthenticationPresentationContextProviding {
+    
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return self.view.window ?? ASPresentationAnchor()
     }
 }

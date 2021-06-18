@@ -13,6 +13,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var standardAccountStackView: UIStackView!
     
+    private let viewModel = LoginViewModel()
+    private let delegates = LoginDelegates()
+    
     var appleLogInButton : ASAuthorizationAppleIDButton = {
         let button = ASAuthorizationAppleIDButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +24,7 @@ class LoginViewController: UIViewController {
     }()
     
     var githubLogInButton : UIButton = {
-        let button = UIButton()//frame: CGRect.init(origin: CGPoint.init(x: 626, y: 16), size: CGSize.init(width: 343, height: 56)))
+        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .black
         button.titleLabel?.font = .boldSystemFont(ofSize: 20)
@@ -36,6 +39,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButton()
+        self.delegates.view = self.view
     }
     
     @objc func handleLogInWithAppleID(){
@@ -43,7 +47,7 @@ class LoginViewController: UIViewController {
         request.requestedScopes = [.fullName, .email]
         
         let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
+        controller.delegate = delegates
         controller.performRequests()
     }
     
@@ -63,7 +67,7 @@ class LoginViewController: UIViewController {
                     }
                     self.requestGithubToken(code: code)
                   })
-        authenticationSession.presentationContextProvider = self
+        authenticationSession.presentationContextProvider = delegates
         authenticationSession.start()
     }
     
@@ -88,34 +92,5 @@ class LoginViewController: UIViewController {
             githubLogInButton.topAnchor.constraint(greaterThanOrEqualTo: standardAccountStackView.safeAreaLayoutGuide.bottomAnchor, constant: 20),
             githubLogInButton.heightAnchor.constraint(equalToConstant: 56)
         ])
-    }
-}
-
-extension LoginViewController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            let userIdentifier = appleIDCredential.user
-            let email = appleIDCredential.email
-            
-            print(userIdentifier)
-            print(String(describing: email))
-            
-            self.present(IssueListViewController.instantiate(name: "Main", bundle: nil),
-                         animated: true)
-        default: break
-        }
-    }
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle Error
-        print(error.localizedDescription)
-    }
-}
-
-extension LoginViewController: ASWebAuthenticationPresentationContextProviding {
-    
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return self.view.window ?? ASPresentationAnchor()
     }
 }

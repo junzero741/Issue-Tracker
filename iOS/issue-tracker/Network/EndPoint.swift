@@ -17,6 +17,7 @@ enum APIPath: String, CustomStringConvertible {
         return self.rawValue
     }
     
+    case loginGithub = "api/login/github/ios"
     case users = "api/users"
     case labels = "api/labels"
     case milestones = "api/milestones"

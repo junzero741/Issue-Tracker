@@ -19,6 +19,10 @@
 		10D4258526709D4800AE119C /* UIViewController+Instantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D4258426709D4800AE119C /* UIViewController+Instantiate.swift */; };
 		B04468F126784CCB00DAD616 /* NetworkRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04468F026784CCA00DAD616 /* NetworkRequester.swift */; };
 		B04468F526784CDC00DAD616 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04468F426784CDC00DAD616 /* EndPoint.swift */; };
+		B0446910267B349C00DAD616 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044690F267B349C00DAD616 /* NetworkService.swift */; };
+		B044692F267B400A00DAD616 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044692E267B400A00DAD616 /* LoginViewModel.swift */; };
+		B0446932267B456800DAD616 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446931267B456800DAD616 /* LoginUseCase.swift */; };
+		B0446935267C78C500DAD616 /* LoginDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446934267C78C400DAD616 /* LoginDelegates.swift */; };
 		BCCEBE1E1668EC814AFFBE24 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +45,10 @@
 		906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04468F026784CCA00DAD616 /* NetworkRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequester.swift; sourceTree = "<group>"; };
 		B04468F426784CDC00DAD616 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		B044690F267B349C00DAD616 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		B044692E267B400A00DAD616 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B0446931267B456800DAD616 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		B0446934267C78C400DAD616 /* LoginDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,9 @@
 			isa = PBXGroup;
 			children = (
 				10BCA8A4266F38E800DBBA61 /* LoginViewController.swift */,
+				B044692E267B400A00DAD616 /* LoginViewModel.swift */,
+				B0446931267B456800DAD616 /* LoginUseCase.swift */,
+				B0446934267C78C400DAD616 /* LoginDelegates.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 			children = (
 				B04468F026784CCA00DAD616 /* NetworkRequester.swift */,
 				B04468F426784CDC00DAD616 /* EndPoint.swift */,
+				B044690F267B349C00DAD616 /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -268,11 +280,15 @@
 			files = (
 				10BCA8A5266F38E800DBBA61 /* LoginViewController.swift in Sources */,
 				10CE4D9E266EFB5700FBD593 /* ViewController.swift in Sources */,
+				B0446935267C78C500DAD616 /* LoginDelegates.swift in Sources */,
 				B04468F526784CDC00DAD616 /* EndPoint.swift in Sources */,
+				B0446932267B456800DAD616 /* LoginUseCase.swift in Sources */,
 				10D4258226709CC200AE119C /* IssueListViewController.swift in Sources */,
+				B0446910267B349C00DAD616 /* NetworkService.swift in Sources */,
 				10CE4D9A266EFB5700FBD593 /* AppDelegate.swift in Sources */,
 				10CE4D9C266EFB5700FBD593 /* SceneDelegate.swift in Sources */,
 				10D4258526709D4800AE119C /* UIViewController+Instantiate.swift in Sources */,
+				B044692F267B400A00DAD616 /* LoginViewModel.swift in Sources */,
 				B04468F126784CCB00DAD616 /* NetworkRequester.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

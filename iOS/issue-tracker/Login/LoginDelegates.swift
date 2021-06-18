@@ -13,7 +13,6 @@ class LoginDelegates: NSObject, ASAuthorizationControllerDelegate, ASWebAuthenti
     weak var view : UIView! = nil
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let userIdentifier = appleIDCredential.user

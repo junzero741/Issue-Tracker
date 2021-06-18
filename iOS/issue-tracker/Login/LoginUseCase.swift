@@ -6,14 +6,52 @@
 //
 
 import Foundation
+import RxSwift
+import AuthenticationServices
 
 class LoginUseCase {
     
-    func loginGithub() {
-        
+    private var disposeBag = DisposeBag()
+    
+    func loginGithub(delegate: LoginDelegates) {
+        let url = LogInEndPoint.init().urlFromEndPoint()
+        let scheme = "issue-tracker"
+        let authenticationSession = ASWebAuthenticationSession
+            .init(url: url,
+                  callbackURLScheme: scheme,
+                  completionHandler: { (url:URL?,error:Error?) in
+                    guard error == nil,
+                          let callBackURL = url,
+                          let queryItems = URLComponents(string: callBackURL.absoluteString)?.queryItems,
+                          let code = queryItems.first(where: { $0.name == "code" })?.value else {
+                        print("An error occurred when attempting to sign in.")
+                        return
+                    }
+                    self.requestGithubToken(code: code)
+                  })
+        authenticationSession.presentationContextProvider = delegate
+        authenticationSession.start()
     }
     
-    func loginApple() {
+    private func requestGithubToken(code: String) {
+        print(code)
+        NetworkService.shared.login(code: code)
+            .subscribe(
+                onNext: { token in
+                    NetworkService.shared.loginToken = token.accessToken
+                },
+                onError: { error in
+                    print(error)
+                })
+            .disposed(by: disposeBag)
+    }
+    
+    func loginApple(delegate: LoginDelegates) {
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
         
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = delegate
+        controller.performRequests()
     }
 }

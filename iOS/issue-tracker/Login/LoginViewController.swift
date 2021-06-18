@@ -43,36 +43,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc func handleLogInWithAppleID(){
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = delegates
-        controller.performRequests()
+        viewModel.loginApple(delegate: delegates)
     }
     
     @objc func handleLogInWithGithubID() {
-        let url = LogInEndPoint.init().urlFromEndPoint()
-        let scheme = "issue-tracker"
-        let authenticationSession = ASWebAuthenticationSession
-            .init(url: url,
-                  callbackURLScheme: scheme,
-                  completionHandler: { (url:URL?,error:Error?) in
-                    guard error == nil,
-                          let callBackURL = url,
-                          let queryItems = URLComponents(string: callBackURL.absoluteString)?.queryItems,
-                          let code = queryItems.first(where: { $0.name == "code" })?.value else {
-                        print("An error occurred when attempting to sign in.")
-                        return
-                    }
-                    self.requestGithubToken(code: code)
-                  })
-        authenticationSession.presentationContextProvider = delegates
-        authenticationSession.start()
-    }
-    
-    private func requestGithubToken(code: String) {
-        print(code)
+        viewModel.loginGithub(delegate: delegates)
     }
 
     private func configureButton(){

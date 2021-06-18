@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import RxSwift
 
 class LoginViewModel {
     private var loginUseCase = LoginUseCase()
-    private var disposeBag = DisposeBag()
     
-    func loginGithub() {
-        loginUseCase.loginGithub()
+    func loginGithub(delegate: LoginDelegates) {
+        loginUseCase.loginGithub(delegate: delegate)
+    }
+    
+    func loginApple(delegate: LoginDelegates) {
+        loginUseCase.loginApple(delegate: delegate)
     }
 }

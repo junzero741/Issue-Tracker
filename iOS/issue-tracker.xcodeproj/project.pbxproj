@@ -23,6 +23,7 @@
 		B044692F267B400A00DAD616 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044692E267B400A00DAD616 /* LoginViewModel.swift */; };
 		B0446932267B456800DAD616 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446931267B456800DAD616 /* LoginUseCase.swift */; };
 		B0446935267C78C500DAD616 /* LoginDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446934267C78C400DAD616 /* LoginDelegates.swift */; };
+		B0446938267C866C00DAD616 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446937267C866B00DAD616 /* JWT.swift */; };
 		BCCEBE1E1668EC814AFFBE24 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		B044692E267B400A00DAD616 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B0446931267B456800DAD616 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		B0446934267C78C400DAD616 /* LoginDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegates.swift; sourceTree = "<group>"; };
+		B0446937267C866B00DAD616 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				B044692E267B400A00DAD616 /* LoginViewModel.swift */,
 				B0446931267B456800DAD616 /* LoginUseCase.swift */,
 				B0446934267C78C400DAD616 /* LoginDelegates.swift */,
+				B0446937267C866B00DAD616 /* JWT.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0446938267C866C00DAD616 /* JWT.swift in Sources */,
 				10BCA8A5266F38E800DBBA61 /* LoginViewController.swift in Sources */,
 				10CE4D9E266EFB5700FBD593 /* ViewController.swift in Sources */,
 				B0446935267C78C500DAD616 /* LoginDelegates.swift in Sources */,
@@ -445,7 +449,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hyewon.issue-tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hyewon.issue-tracker1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,7 +464,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "issue-tracker/issue-tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				DEVELOPMENT_TEAM = PSH4C5839A;
 				INFOPLIST_FILE = "issue-tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

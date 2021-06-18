@@ -76,8 +76,7 @@ struct EndPoint: URLConvertible {
     func asURL() throws -> URL {
         var component = URLComponents()
         component.scheme = "http"
-        component.host = "52.78.20.134"
-        component.port = 8080
+        component.host = "13.125.197.4"
         component.path = "/\(path.description)"
         guard component.url != nil else {
             throw NetworkErrors.invalidURL
@@ -87,7 +86,7 @@ struct EndPoint: URLConvertible {
     }
     
     func urlFromEndPoint() -> URL {
-        var url = URL.init(string: "http//52.78.20.134:8080")!
+        var url = URL.init(string: "http//13.125.197.4")!
         
         do {
              url = try self.asURL()

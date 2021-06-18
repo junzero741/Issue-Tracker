@@ -13,13 +13,13 @@ class NetworkService {
     
     private let requester : NetworkRequestable
     
-    private var loginToken : String?
+    var loginToken : String?
     
     private init() {
         self.requester = NetworkRequester()
     }
     
-    func login(code: String) -> Observable<String> {
+    func login(code: String) -> Observable<JWT> {
         let endPoint = EndPoint.init(path: .loginGithub,
                                      method: .get)
         return requester.get(endPoint: endPoint, parameters: ["code":code])

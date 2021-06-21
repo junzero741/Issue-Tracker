@@ -9,7 +9,7 @@ import UIKit
 import Octokit
 import AuthenticationServices
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, ReuseIdentity {
 
     @IBOutlet weak var standardAccountStackView: UIStackView!
     

@@ -29,4 +29,11 @@ class IssueCoordinator: NSObject, Coordinator {
         
         navigationController.pushViewController(issueEditVC, animated: true)
     }
+    
+    func presentLoginView() {
+        let loginVC = UIStoryboard(name: StoryBoardName.Main.description, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.reuseIdentifier) as! LoginViewController
+        
+        loginVC.modalPresentationStyle = .fullScreen
+        navigationController.present(loginVC, animated: true, completion: nil)
+    }
 }

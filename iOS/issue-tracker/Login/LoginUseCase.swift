@@ -19,7 +19,7 @@ class LoginUseCase {
         let authenticationSession = ASWebAuthenticationSession
             .init(url: url,
                   callbackURLScheme: scheme,
-                  completionHandler: { (url:URL?,error:Error?) in
+                  completionHandler: { (url:URL?, error:Error?) in
                     guard error == nil,
                           let callBackURL = url,
                           let queryItems = URLComponents(string: callBackURL.absoluteString)?.queryItems,
@@ -34,7 +34,6 @@ class LoginUseCase {
     }
     
     private func requestGithubToken(code: String) {
-        print(code)
         NetworkService.shared.login(code: code)
             .subscribe(
                 onNext: { token in
@@ -53,5 +52,19 @@ class LoginUseCase {
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = delegate
         controller.performRequests()
+    }
+    
+    func testGetUser() {
+        NetworkService.shared.getUser()
+            .subscribe(onNext: { a in
+                print(a)
+            }, onError: { b in
+                print(b)
+            }, onCompleted: {
+                print("completed")
+            }, onDisposed: {
+                print("disposed")
+            })
+            .disposed(by: disposeBag)
     }
 }

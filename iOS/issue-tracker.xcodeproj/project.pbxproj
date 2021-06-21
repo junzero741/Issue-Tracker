@@ -24,6 +24,7 @@
 		B0446932267B456800DAD616 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446931267B456800DAD616 /* LoginUseCase.swift */; };
 		B0446935267C78C500DAD616 /* LoginDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446934267C78C400DAD616 /* LoginDelegates.swift */; };
 		B0446938267C866C00DAD616 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0446937267C866B00DAD616 /* JWT.swift */; };
+		B0707785268075F60083DDA0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0707784268075F60083DDA0 /* User.swift */; };
 		BCCEBE1E1668EC814AFFBE24 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		B0446931267B456800DAD616 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		B0446934267C78C400DAD616 /* LoginDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegates.swift; sourceTree = "<group>"; };
 		B0446937267C866B00DAD616 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
+		B0707784268075F60083DDA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		10CE4D98266EFB5700FBD593 /* issue-tracker */ = {
 			isa = PBXGroup;
 			children = (
+				B0707783268075EA0083DDA0 /* Model */,
 				B04468EF26784CA100DAD616 /* Network */,
 				10D4257F2670912800AE119C /* issue-tracker.entitlements */,
 				10BCA8A7266F3C0000DBBA61 /* Font */,
@@ -164,6 +167,14 @@
 				B044690F267B349C00DAD616 /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		B0707783268075EA0083DDA0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0707784268075F60083DDA0 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 				B0446935267C78C500DAD616 /* LoginDelegates.swift in Sources */,
 				B04468F526784CDC00DAD616 /* EndPoint.swift in Sources */,
 				B0446932267B456800DAD616 /* LoginUseCase.swift in Sources */,
+				B0707785268075F60083DDA0 /* User.swift in Sources */,
 				10D4258226709CC200AE119C /* IssueListViewController.swift in Sources */,
 				B0446910267B349C00DAD616 /* NetworkService.swift in Sources */,
 				10CE4D9A266EFB5700FBD593 /* AppDelegate.swift in Sources */,

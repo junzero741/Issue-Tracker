@@ -10,18 +10,25 @@ import RxSwift
 import Alamofire
 
 protocol NetworkRequestable {
-    func get<T: Codable>(endPoint: EndPoint, parameters: [String: Codable]?) -> Observable<T>
+    func get<T: Codable>(endPoint: EndPoint, token: String?, parameters: [String: Codable]?) -> Observable<T>
 }
 
 class NetworkRequester: NetworkRequestable {
-    func get<T: Codable>(endPoint: EndPoint, parameters: [String: Codable]? = nil) -> Observable<T> {
+    func get<T: Codable>(endPoint: EndPoint,
+                         token: String?,
+                         parameters: [String: Codable]? = nil) -> Observable<T> {
         return Observable<T>.create({ observer in
             
             let url = endPoint.urlFromEndPoint()
             
-            let dataRequest = AF.request(url, method: endPoint.method, parameters: parameters, encoding: URLEncoding.queryString)
+            let accessToken = token != nil ? token! : ""
+            let header: HTTPHeaders = [.authorization(bearerToken: accessToken)]
             
-            dataRequest.responseDecodable(of: T.self, completionHandler: { response in
+            let dataRequest = AF.request(url, method: endPoint.method, parameters: parameters, encoding: URLEncoding.queryString, headers: header)
+            
+            dataRequest
+                .validate()
+                .responseDecodable(of: T.self, completionHandler: { response in
                 switch response.result {
                 case .success(let data):
                     observer.onNext(data)

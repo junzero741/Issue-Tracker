@@ -22,6 +22,12 @@ class NetworkService {
     func login(code: String) -> Observable<JWT> {
         let endPoint = EndPoint.init(path: .loginGithub,
                                      method: .get)
-        return requester.get(endPoint: endPoint, parameters: ["code":code])
+        return requester.get(endPoint: endPoint, token: nil, parameters: ["code":code])
+    }
+    
+    func getUser() -> Observable<Users> {
+        let endPoint = EndPoint.init(path: .users, method: .get)
+        
+        return requester.get(endPoint: endPoint, token: loginToken, parameters: nil)
     }
 }

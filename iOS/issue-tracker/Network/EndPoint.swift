@@ -27,7 +27,7 @@ struct LogInEndPoint: URLConvertible {
     
     let method = HTTPMethod.get
     private let scope : String?
-    private let clientId  = "Iv1.d417ce92e94ff26f"
+    private let clientId  = "8592b1a7529d99516dd5"
     
     init(scope: String? = nil) {
         self.scope = scope

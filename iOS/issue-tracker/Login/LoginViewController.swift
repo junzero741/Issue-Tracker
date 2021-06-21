@@ -42,15 +42,17 @@ class LoginViewController: UIViewController {
         self.delegates.view = self.view
     }
     
-    @objc func handleLogInWithAppleID(){
+    @objc
+    func handleLogInWithAppleID(){
         viewModel.loginApple(delegate: delegates)
     }
     
-    @objc func handleLogInWithGithubID() {
+    @objc
+    func handleLogInWithGithubID() {
         viewModel.loginGithub(delegate: delegates)
     }
 
-    private func configureButton(){
+    private func configureButton() {
         self.view.addSubview(appleLogInButton)
         self.view.addSubview(githubLogInButton)
         

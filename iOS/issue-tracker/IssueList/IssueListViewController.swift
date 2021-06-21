@@ -7,11 +7,19 @@
 
 import UIKit
 
-class IssueListViewController: UIViewController {
+class IssueListViewController: UIViewController, ReuseIdentity {
 
+    weak var coordinator: IssueCoordinator?
+    
+    @IBAction func pushToEditView(_ sender: Any) {
+        coordinator?.pushEditView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "이슈"
     }
 
 }

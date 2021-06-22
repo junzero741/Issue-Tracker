@@ -27,17 +27,21 @@ class LoginUseCase {
                         print("An error occurred when attempting to sign in.")
                         return
                     }
-                    self.requestGithubToken(code: code)
+                    self.requestGithubToken(code: code, delegate: delegate)
                   })
         authenticationSession.presentationContextProvider = delegate
         authenticationSession.start()
     }
     
-    private func requestGithubToken(code: String) {
+    private func requestGithubToken(code: String, delegate: LoginDelegates) {
         NetworkService.shared.login(code: code)
             .subscribe(
                 onNext: { token in
                     NetworkService.shared.loginToken = token.accessToken
+                    
+                    if NetworkService.shared.loginToken != nil {
+                        delegate.dismissClosure()
+                    }
                 },
                 onError: { error in
                     print(error)

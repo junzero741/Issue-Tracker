@@ -11,6 +11,7 @@ import AuthenticationServices
 class LoginDelegates: NSObject, ASAuthorizationControllerDelegate, ASWebAuthenticationPresentationContextProviding {
     
     weak var view : UIView! = nil
+    var dismissClosure : (() -> Void)!
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {

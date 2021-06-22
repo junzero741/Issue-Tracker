@@ -15,6 +15,11 @@ class LoginViewController: UIViewController, ReuseIdentity {
     
     private let viewModel = LoginViewModel()
     private let delegates = LoginDelegates()
+    weak var coordinator: IssueCoordinator!
+    
+    lazy var dismissCloser = {
+        self.coordinator.dismiss(view: self)
+    }
     
     var appleLogInButton : ASAuthorizationAppleIDButton = {
         let button = ASAuthorizationAppleIDButton()
@@ -40,10 +45,15 @@ class LoginViewController: UIViewController, ReuseIdentity {
         super.viewDidLoad()
         configureButton()
         self.delegates.view = self.view
+        self.delegates.dismissClosure = dismissCloser
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     @objc
-    func handleLogInWithAppleID(){
+    func handleLogInWithAppleID() {
         viewModel.loginApple(delegate: delegates)
     }
     

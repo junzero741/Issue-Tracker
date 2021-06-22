@@ -34,6 +34,11 @@ class IssueCoordinator: NSObject, Coordinator {
         let loginVC = UIStoryboard(name: StoryBoardName.Main.description, bundle: nil).instantiateViewController(withIdentifier: LoginViewController.reuseIdentifier) as! LoginViewController
         
         loginVC.modalPresentationStyle = .fullScreen
+        loginVC.coordinator = self
         navigationController.present(loginVC, animated: true, completion: nil)
+    }
+    
+    func dismiss(view: UIViewController) {
+        view.dismiss(animated: true, completion: nil)
     }
 }

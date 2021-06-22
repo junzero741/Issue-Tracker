@@ -11,7 +11,7 @@ import RxSwift
 class NetworkService {
     static let shared = NetworkService()
     
-    private let requester : NetworkRequestable
+    private let requester : NetworkRequesting
     
     var loginToken : String?
     

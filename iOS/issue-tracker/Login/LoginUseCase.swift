@@ -14,7 +14,7 @@ class LoginUseCase {
     private var disposeBag = DisposeBag()
     
     func loginGithub(delegate: LoginDelegates) {
-        let url = LogInEndPoint.init().urlFromEndPoint()
+        let url = LoginEndPoint.init().urlFromEndPoint()
         let scheme = "issue-tracker"
         let authenticationSession = ASWebAuthenticationSession
             .init(url: url,
@@ -48,7 +48,7 @@ class LoginUseCase {
     func loginApple(delegate: LoginDelegates) {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
-        
+
         let controller = ASAuthorizationController(authorizationRequests: [request])
         controller.delegate = delegate
         controller.performRequests()

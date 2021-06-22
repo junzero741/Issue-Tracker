@@ -12,7 +12,7 @@ struct Users: Codable {
 }
 
 struct User: Codable {
-    let id: String?
+    let id: String
     let nickName: String?
     let imageUrl: String?
 }

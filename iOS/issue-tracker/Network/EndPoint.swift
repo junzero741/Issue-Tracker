@@ -23,7 +23,7 @@ enum APIPath: String, CustomStringConvertible {
     case milestones = "api/milestones"
 }
 
-struct LogInEndPoint: URLConvertible {
+struct LoginEndPoint: URLConvertible {
     
     let method = HTTPMethod.get
     private let scope : String?
@@ -68,7 +68,7 @@ struct EndPoint: URLConvertible {
     let path : APIPath
     let method : HTTPMethod
     
-    init(path: APIPath, method: HTTPMethod ) {
+    init(path: APIPath, method: HTTPMethod) {
         self.path = path
         self.method = method
     }

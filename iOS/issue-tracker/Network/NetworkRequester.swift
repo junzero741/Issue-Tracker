@@ -9,11 +9,11 @@ import Foundation
 import RxSwift
 import Alamofire
 
-protocol NetworkRequestable {
+protocol NetworkRequesting {
     func get<T: Codable>(endPoint: EndPoint, token: String?, parameters: [String: Codable]?) -> Observable<T>
 }
 
-class NetworkRequester: NetworkRequestable {
+class NetworkRequester: NetworkRequesting {
     func get<T: Codable>(endPoint: EndPoint,
                          token: String?,
                          parameters: [String: Codable]? = nil) -> Observable<T> {

@@ -21,5 +21,13 @@ class IssueListViewController: UIViewController, ReuseIdentity {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "이슈"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if NetworkService.shared.loginToken == nil {
+            coordinator?.presentLoginView()
+        }
+    }
 
 }

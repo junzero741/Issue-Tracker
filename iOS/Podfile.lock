@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.3)
   - Differentiator (5.0.0)
   - NBNRequestKit (2.2.0)
   - OctoKit.swift (0.8.0):
@@ -16,6 +17,7 @@ PODS:
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
+  - Alamofire
   - OctoKit.swift
   - RxCocoa
   - RxDataSources
@@ -24,6 +26,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Differentiator
     - NBNRequestKit
     - OctoKit.swift
@@ -34,6 +37,7 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
   OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
@@ -43,6 +47,6 @@ SPEC CHECKSUMS:
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 030198b7660c4507410bd66fb59d6a553e6751b2
+PODFILE CHECKSUM: 30fe1c78d5a930b8b149f3e332a03db3c327e877
 
 COCOAPODS: 1.10.1

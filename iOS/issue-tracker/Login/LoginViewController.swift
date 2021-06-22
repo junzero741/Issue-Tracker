@@ -9,9 +9,17 @@ import UIKit
 import Octokit
 import AuthenticationServices
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, ReuseIdentity {
 
     @IBOutlet weak var standardAccountStackView: UIStackView!
+    
+    private let viewModel = LoginViewModel()
+    private let delegates = LoginDelegates()
+    weak var coordinator: IssueCoordinator!
+    
+    lazy var dismissCloser = {
+        self.coordinator.dismiss(view: self)
+    }
     
     var appleLogInButton : ASAuthorizationAppleIDButton = {
         let button = ASAuthorizationAppleIDButton()
@@ -36,21 +44,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureButton()
+        self.delegates.view = self.view
+        self.delegates.dismissClosure = dismissCloser
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     @objc
     func handleLogInWithAppleID() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
-        request.requestedScopes = [.fullName, .email]
-        
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self
-        controller.performRequests()
+        viewModel.loginApple(delegate: delegates)
     }
     
     @objc
     func handleLogInWithGithubID() {
-        
+        viewModel.loginGithub(delegate: delegates)
     }
 
     private func configureButton() {
@@ -70,28 +79,5 @@ class LoginViewController: UIViewController {
             githubLogInButton.topAnchor.constraint(greaterThanOrEqualTo: standardAccountStackView.safeAreaLayoutGuide.bottomAnchor, constant: 20),
             githubLogInButton.heightAnchor.constraint(equalToConstant: 56)
         ])
-    }
-}
-
-extension LoginViewController: ASAuthorizationControllerDelegate {
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        switch authorization.credential {
-        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-            let userIdentifier = appleIDCredential.user
-            let email = appleIDCredential.email
-            
-            print(userIdentifier)
-            print(String(describing: email))
-            
-            self.present(IssueListViewController.instantiate(name: "Main", bundle: nil),
-                         animated: true)
-        default: break
-        }
-    }
-    
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle Error
-        print(error.localizedDescription)
     }
 }

@@ -57,18 +57,4 @@ class LoginUseCase {
         controller.delegate = delegate
         controller.performRequests()
     }
-    
-    func testGetUser() {
-        NetworkService.shared.getUser()
-            .subscribe(onNext: { a in
-                print(a)
-            }, onError: { b in
-                print(b)
-            }, onCompleted: {
-                print("completed")
-            }, onDisposed: {
-                print("disposed")
-            })
-            .disposed(by: disposeBag)
-    }
 }

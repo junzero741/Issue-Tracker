@@ -24,6 +24,22 @@
                                     <action selector="pushToEditView:" destination="IyT-ul-gca" eventType="touchUpInside" id="Drp-6k-2Mh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGU-lX-4VC">
+                                <rect key="frame" x="172" y="214" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="post"/>
+                                <connections>
+                                    <action selector="testPostAction:" destination="IyT-ul-gca" eventType="touchUpInside" id="uC2-3p-dvH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgU-mK-z9n">
+                                <rect key="frame" x="165" y="287" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="gets"/>
+                                <connections>
+                                    <action selector="testGETAction:" destination="IyT-ul-gca" eventType="touchUpInside" id="0P9-Io-WHZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bOc-Ju-qdi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -25,9 +25,16 @@ class NetworkService {
         return requester.get(endPoint: endPoint, token: nil, parameters: ["code":code])
     }
     
-    func getUser() -> Observable<Users> {
-        let endPoint = EndPoint.init(path: .users, method: .get)
+    func get<T: Codable>(target: APIPath) -> Observable<T> {
+        let endPoint = EndPoint.init(path: target, method: .get)
         
         return requester.get(endPoint: endPoint, token: loginToken, parameters: nil)
+    }
+    
+    func postLabel() -> Observable<LabelWithKey> {
+        let endPoint = EndPoint.init(path: .labels, method: .post)
+        let input = Label.init(id: "",name: "testDowneyName3", description: "testDowneyDescription0", colors: Color.init(backgroundColor: "#FFFFFF", textColor: "#000000"))
+        
+        return requester.post(endPoint: endPoint, token: loginToken, body: input)
     }
 }

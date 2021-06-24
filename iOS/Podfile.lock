@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
   - Differentiator (5.0.0)
+  - MarkdownView (1.7.1)
   - NBNRequestKit (2.2.0)
   - OctoKit.swift (0.8.0):
     - NBNRequestKit (~> 2.0)
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - MarkdownView
   - OctoKit.swift
   - RxCocoa
   - RxDataSources
@@ -28,6 +30,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - Differentiator
+    - MarkdownView
     - NBNRequestKit
     - OctoKit.swift
     - RxCocoa
@@ -39,6 +42,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  MarkdownView: cf30a97ab39b2bce04406adce541972c882363bd
   NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
   OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 30fe1c78d5a930b8b149f3e332a03db3c327e877
+PODFILE CHECKSUM: 7386bf805d9b11491317e5b366c55e894d0e1982
 
 COCOAPODS: 1.10.1

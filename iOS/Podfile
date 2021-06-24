@@ -10,6 +10,7 @@ target 'issue-tracker' do
   pod 'RxDataSources'
   pod 'OctoKit.swift'
   pod 'Alamofire'
+  pod 'MarkdownView'
   # Pods for issue-tracker
 
 end

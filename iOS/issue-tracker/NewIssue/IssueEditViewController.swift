@@ -10,6 +10,7 @@ import UIKit
 class IssueEditViewController: UIViewController, ReuseIdentity {
 
     @IBOutlet weak var additionalInfoTable: UITableView!
+    @IBOutlet weak var textContainerView: UIView!
     
     weak var coordinator: Coordinator?
     private var tableDelegate = AdditionalTableDelegate()

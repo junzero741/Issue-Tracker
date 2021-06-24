@@ -16,6 +16,17 @@ class IssueEditViewController: UIViewController, ReuseIdentity {
     private var tableDelegate = AdditionalTableDelegate()
     private var tableDataSource = AdditionalTableViewDataSource()
     
+    enum Segment: Int {
+        case markdown
+        case preview
+        
+        var status: Int {
+            return self.rawValue
+        }
+        static var titles: [String] {
+            return ["마크다운", "미리보기"]
+        }
+    }
     private lazy var photoPicker = ImagePicker(presentationController: self, delegate: self)
     
     override func viewDidLoad() {

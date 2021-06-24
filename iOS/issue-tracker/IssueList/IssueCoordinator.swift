@@ -27,6 +27,9 @@ class IssueCoordinator: NSObject, Coordinator {
         let issueEditVC = UIStoryboard(name: StoryBoardName.IssueEdit.description, bundle: nil)
             .instantiateViewController(withIdentifier: IssueEditViewController.reuseIdentifier) as! IssueEditViewController
         
+        let segmentController = UISegmentedControl(items: IssueEditViewController.Segment.titles)
+        segmentController.selectedSegmentIndex = IssueEditViewController.Segment.markdown.status
+        issueEditVC.navigationItem.titleView = segmentController
         navigationController.pushViewController(issueEditVC, animated: true)
     }
     

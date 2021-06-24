@@ -12,6 +12,7 @@
 		104633862684539D00EF1900 /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D4258126709CC200AE119C /* IssueListViewController.swift */; };
 		10463387268453A600EF1900 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BCA8A4266F38E800DBBA61 /* LoginViewController.swift */; };
 		1046338B26845A8F00EF1900 /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046338A26845A8F00EF1900 /* MarkdownViewController.swift */; };
+		1046338D26845D6700EF1900 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1046338C26845D6700EF1900 /* PreviewViewController.swift */; };
 		10992D55267200F000A77322 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10992D54267200F000A77322 /* ImagePicker.swift */; };
 		10BCA8AA266F3C8100DBBA61 /* Montserrat-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10BCA8A9266F3C7A00DBBA61 /* Montserrat-Italic.ttf */; };
 		10BDE6B52670C324007B38AF /* IssueEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BDE6B42670C324007B38AF /* IssueEditViewController.swift */; };
@@ -48,6 +49,7 @@
 		1029609B26733FB800669988 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "issue-tracker/Base.lproj/IssueEdit.storyboard"; sourceTree = SOURCE_ROOT; };
 		1029609D2673401E00669988 /* StoryBoardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardName.swift; sourceTree = "<group>"; };
 		1046338A26845A8F00EF1900 /* MarkdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
+		1046338C26845D6700EF1900 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		10992D54267200F000A77322 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		10BCA8A4266F38E800DBBA61 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10BCA8A9266F3C7A00DBBA61 /* Montserrat-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.ttf"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				1029609A26733FB800669988 /* IssueEdit.storyboard */,
 				10BDE6B42670C324007B38AF /* IssueEditViewController.swift */,
 				1046338A26845A8F00EF1900 /* MarkdownViewController.swift */,
+				1046338C26845D6700EF1900 /* PreviewViewController.swift */,
 			);
 			path = NewIssue;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				10BDE6B52670C324007B38AF /* IssueEditViewController.swift in Sources */,
 				1029609E2673401E00669988 /* StoryBoardName.swift in Sources */,
 				10D4258526709D4800AE119C /* UIViewController+Instantiate.swift in Sources */,
+				1046338D26845D6700EF1900 /* PreviewViewController.swift in Sources */,
 				B044692F267B400A00DAD616 /* LoginViewModel.swift in Sources */,
 				1046338B26845A8F00EF1900 /* MarkdownViewController.swift in Sources */,
 				B04468F126784CCB00DAD616 /* NetworkRequester.swift in Sources */,

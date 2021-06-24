@@ -21,6 +21,10 @@ class IssueListViewController: UIViewController, ReuseIdentity {
         self.navigationItem.title = "이슈"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

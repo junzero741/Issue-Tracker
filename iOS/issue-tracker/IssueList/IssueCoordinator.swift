@@ -16,7 +16,6 @@ class IssueCoordinator: NSObject, Coordinator {
             .instantiateViewController(withIdentifier: IssueListViewController.reuseIdentifier) as! IssueListViewController
         
         self.navigationController = UINavigationController(rootViewController: issueListVC)
-        self.navigationController.navigationBar.prefersLargeTitles = true
         navigationController.tabBarItem = UITabBarItem(title: "이슈",
                                                        image: UIImage.init(systemName: "exclamationmark.circle"),
                                                        tag: 0)
@@ -28,12 +27,6 @@ class IssueCoordinator: NSObject, Coordinator {
         let issueEditVC = UIStoryboard(name: StoryBoardName.IssueEdit.description, bundle: nil)
             .instantiateViewController(withIdentifier: IssueEditViewController.reuseIdentifier) as! IssueEditViewController
         
-        // Setting SegmentControl
-        let segmentController = UISegmentedControl(items: IssueEditViewController.Segment.titles)
-        segmentController.selectedSegmentIndex = IssueEditViewController.Segment.markdown.status
-        issueEditVC.navigationItem.titleView = segmentController
-        
-        navigationController.navigationBar.prefersLargeTitles = false
         navigationController.pushViewController(issueEditVC, animated: true)
     }
     

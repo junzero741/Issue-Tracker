@@ -14,6 +14,11 @@ class IssueEditViewController: UIViewController, ReuseIdentity {
     weak var coordinator: Coordinator?
     private var tableDelegate = AdditionalTableDelegate()
     private var tableDataSource = AdditionalTableViewDataSource()
+    private var segmentControl: UISegmentedControl = {
+        let control = UISegmentedControl(items: IssueEditViewController.Segment.titles)
+        control.selectedSegmentIndex = IssueEditViewController.Segment.markdown.status
+        return control
+    }()
     
     enum Segment: Int {
         case markdown
@@ -32,7 +37,9 @@ class IssueEditViewController: UIViewController, ReuseIdentity {
         
         self.additionalInfoTable.delegate = tableDelegate
         self.additionalInfoTable.dataSource = tableDataSource
-        
+    
+        self.navigationItem.titleView = segmentControl
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         registerNib()
         configureTable()
     }

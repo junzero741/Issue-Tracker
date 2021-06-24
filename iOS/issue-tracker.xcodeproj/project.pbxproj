@@ -44,6 +44,7 @@
 		B0783E742681E1830031C2FD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0783E732681E1830031C2FD /* Color.swift */; };
 		B0783E772681E1DB0031C2FD /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0783E762681E1DB0031C2FD /* Milestone.swift */; };
 		B0783E7A2681E21F0031C2FD /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0783E792681E21F0031C2FD /* Issue.swift */; };
+		B0783E7D2684648C0031C2FD /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0783E7C2684648C0031C2FD /* ImageResponse.swift */; };
 		BCCEBE1E1668EC814AFFBE24 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 906455FA7C42AB9BB530CE77 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		B0783E732681E1830031C2FD /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B0783E762681E1DB0031C2FD /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
 		B0783E792681E21F0031C2FD /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		B0783E7C2684648C0031C2FD /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 				B0783E732681E1830031C2FD /* Color.swift */,
 				B0783E762681E1DB0031C2FD /* Milestone.swift */,
 				B0783E792681E21F0031C2FD /* Issue.swift */,
+				B0783E7C2684648C0031C2FD /* ImageResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				B0783E772681E1DB0031C2FD /* Milestone.swift in Sources */,
 				10D55EDE2670D46E007587C4 /* AdditionalTableViewCell.swift in Sources */,
 				B0783E742681E1830031C2FD /* Color.swift in Sources */,
+				B0783E7D2684648C0031C2FD /* ImageResponse.swift in Sources */,
 				10BDE6B52670C324007B38AF /* IssueEditViewController.swift in Sources */,
 				1029609E2673401E00669988 /* StoryBoardName.swift in Sources */,
 				10D4258526709D4800AE119C /* UIViewController+Instantiate.swift in Sources */,

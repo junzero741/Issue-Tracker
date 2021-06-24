@@ -15,4 +15,6 @@ struct User: Codable {
     let id: String
     let nickName: String?
     let imageUrl: String?
+    let githubId: String?
+    let appleId: String?
 }

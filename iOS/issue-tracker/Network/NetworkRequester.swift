@@ -13,6 +13,8 @@ protocol NetworkRequesting {
     func get<T: Codable>(endPoint: EndPoint, token: String?, parameters: [String: Codable]?) -> Observable<T>
     
     func post<T: Codable, J:Codable>(endPoint: EndPoint, token: String?, body: T) -> Observable<J>
+    
+    func uploadImage<T: Codable>(endPoint: EndPoint, token: String?, body: UIImage) -> Observable<T>
 }
 
 class NetworkRequester: NetworkRequesting {
@@ -75,6 +77,43 @@ class NetworkRequester: NetworkRequesting {
             }
         })
         
+    }
+    
+    func uploadImage<T: Codable>(endPoint: EndPoint, token: String?, body: UIImage) -> Observable<T> {
+        
+        let url = endPoint.urlFromEndPoint()
+        let accessToken = token != nil ? token! : ""
+        let header: HTTPHeaders = [
+            .authorization(bearerToken: accessToken),
+            .contentType("multipart/form-data")
+        ]
+        let data = body.jpegData(compressionQuality: 0.2)
+        
+        return Observable<T>.create({ observer in
+            
+            let uploader = AF.upload(
+                multipartFormData: { multipartFormData in
+                    multipartFormData.append(data!,withName: "image",fileName: "image-downey" ,mimeType: "image/jpg")
+                },
+                to: url,
+                usingThreshold: UInt64.init(),
+                method: .post,
+                headers: header)
+                .responseData(completionHandler: { response in
+                    switch response.result {
+                    case .success(let data):
+                        let decoded = try? JSONDecoder().decode(T.self, from: data)
+                        observer.onNext(decoded!)
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+                })
+            
+            return Disposables.create {
+                uploader.cancel()
+            }
+            
+        })
     }
     
 }

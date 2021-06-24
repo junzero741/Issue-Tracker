@@ -21,28 +21,20 @@ struct Issues: Codable {
 
 struct Issue: Codable {
     let id: Int
-    let author: UserForIssue?
+    let author: User?
     let title: String?
     let createdAt: String?
     let labels: [Label]?
-    let assignees: [UserForIssue]?
+    let assignees: [User]?
     let milestone: Milestone?
     let comments: [Comment]
     let open: Bool
 }
 
-struct UserForIssue: Codable {
-    let id: String
-    let nickName: String?
-    let imageUrl: String?
-    let githubId: String?
-    let appleId: String?
-}
-
 struct Comment: Codable {
     let id: String
     let issueId: Int
-    let author: UserForIssue
+    let author: User
     let createdAt: String
     let content: String
 }

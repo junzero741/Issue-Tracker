@@ -23,6 +23,7 @@ enum APIPath: String, CustomStringConvertible {
     case milestones = "api/milestones"
     case comments = "api/comments"
     case issues = "api/issues"
+    case images = "api/images"
 }
 
 struct LoginEndPoint: URLConvertible {

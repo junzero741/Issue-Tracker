@@ -31,10 +31,15 @@ class NetworkService {
         return requester.get(endPoint: endPoint, token: loginToken, parameters: nil)
     }
     
-    func postLabel() -> Observable<LabelWithKey> {
-        let endPoint = EndPoint.init(path: .labels, method: .post)
-        let input = Label.init(id: "",name: "testDowneyName3", description: "testDowneyDescription0", colors: Color.init(backgroundColor: "#FFFFFF", textColor: "#000000"))
+    func post<T: Codable, J: Codable>(input: T, target: APIPath) -> Observable<J> {
+        let endPoint = EndPoint.init(path: target, method: .post)
         
         return requester.post(endPoint: endPoint, token: loginToken, body: input)
+    }
+    
+    func uploadImage<T: Codable>(input: UIImage) -> Observable<T> {
+        let endPoint = EndPoint.init(path: .images, method: .post)
+        
+        return requester.uploadImage(endPoint: endPoint, token: loginToken, body: input)
     }
 }

@@ -17,26 +17,15 @@ class IssueListViewController: UIViewController, ReuseIdentity {
         coordinator?.pushEditView()
     }
     @IBAction func testGETAction(_ sender: Any) {
-//        getUser()
+        getUser()
         getLabel()
         getMilestone()
         getIssues()
     }
     
     @IBAction func testPostAction(_ sender: Any) {
-        NetworkService.shared.postLabel()
-            .subscribe(onNext: { responseLabel in
-                print(responseLabel)
-            },
-            onError: { error in
-                print(error)
-            },
-            onCompleted: {
-                print("comple")
-            },
-            onDisposed: {
-                print("dispose")
-            })
+//        postLabel()
+        postImage()
     }
     
     func getUser() {
@@ -97,6 +86,48 @@ class IssueListViewController: UIViewController, ReuseIdentity {
                 print("disposed")
             })
             .disposed(by: disposeBag)
+    }
+    
+    func postLabel() {
+        let input = Label.init(id: "",name: "testDowneyName3", description: "testDowneyDescription0", colors: Color.init(backgroundColor: "#FFFFFF", textColor: "#000000"))
+        let observer: Observable<LabelWithKey> = NetworkService.shared.post(input: input, target: .labels)
+            
+        observer
+            .subscribe(onNext: { responseLabel in
+                print(responseLabel)
+            },
+            onError: { error in
+                print(error)
+            },
+            onCompleted: {
+                print("comple")
+            },
+            onDisposed: {
+                print("dispose")
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func postImage() {
+        
+        let testInput = UIImage.init(named: "githubIcon")!
+        let testInput2 = UIImage.init(named: "testJPG")!
+        
+        let observer: Observable<ImageResponse> = NetworkService.shared.uploadImage(input: testInput2)
+        
+        observer.subscribe(onNext: { response in
+            print(response)
+        },
+        onError: { error in
+            print(error)
+        },
+        onCompleted: {
+            print("comple")
+        },
+        onDisposed: {
+            print("disposed")
+        })
+        .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {

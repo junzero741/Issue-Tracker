@@ -10,7 +10,6 @@ import UIKit
 class IssueEditViewController: UIViewController, ReuseIdentity {
 
     @IBOutlet weak var additionalInfoTable: UITableView!
-    @IBOutlet weak var textContent: UITextView!
     
     weak var coordinator: Coordinator?
     private var tableDelegate = AdditionalTableDelegate()
@@ -27,14 +26,12 @@ class IssueEditViewController: UIViewController, ReuseIdentity {
             return ["마크다운", "미리보기"]
         }
     }
-    private lazy var photoPicker = ImagePicker(presentationController: self, delegate: self)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.additionalInfoTable.delegate = tableDelegate
         self.additionalInfoTable.dataSource = tableDataSource
-        self.textContent.delegate = self
         
         registerNib()
         configureTable()
@@ -50,24 +47,5 @@ class IssueEditViewController: UIViewController, ReuseIdentity {
         self.additionalInfoTable.translatesAutoresizingMaskIntoConstraints = false
         self.additionalInfoTable.tableFooterView = UIView()
     }
-
-    @objc
-    func insertPhoto() {
-        self.photoPicker.present()
-    }
     
-}
-extension IssueEditViewController: UITextViewDelegate {
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        let menuItem = UIMenuItem(title: "Insert Photo", action: #selector(insertPhoto))
-        UIMenuController.shared.menuItems = [menuItem]
-    }
-}
-
-extension IssueEditViewController: ImagePickerDelegate {
-    
-    func didSelect(image: UIImage?) {
-        
-    }
 }

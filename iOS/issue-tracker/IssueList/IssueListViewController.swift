@@ -25,6 +25,7 @@ class IssueListViewController: UIViewController, ReuseIdentity {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

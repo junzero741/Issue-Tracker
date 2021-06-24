@@ -39,9 +39,14 @@ class IssueEditViewController: UIViewController, ReuseIdentity {
         self.additionalInfoTable.dataSource = tableDataSource
     
         self.navigationItem.titleView = segmentControl
-        self.navigationController?.navigationBar.prefersLargeTitles = false
+        
         registerNib()
         configureTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func registerNib() {

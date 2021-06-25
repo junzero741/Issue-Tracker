@@ -13,10 +13,8 @@ class MarkdownViewController: UIViewController {
     
     private lazy var photoPicker = ImagePicker(presentationController: self, delegate: self)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.textContent.delegate = self
     }
     

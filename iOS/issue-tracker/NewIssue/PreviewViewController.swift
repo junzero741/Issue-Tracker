@@ -11,19 +11,27 @@ import MarkdownView
 class PreviewViewController: UIViewController {
 
     private var markdownView: MarkdownView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-        let test = """
+    var text: String = """
             # Hello
             ## Hello
             ### Hello
             
             - Elly Elly Elly
             - Good
+            - Today I Learned
+            
+            # 한글도 되나?
+            `setNeedsDisplay()`!!!
+            
+            ```swift
+            let controller = UIViewController()
+            ```
             """
-        markdownView.load(markdown: test)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+        markdownView.load(markdown: text)
     }
 
     private func configure(){

@@ -30,7 +30,7 @@ jobs:
       run: pwd
       
     - name: cd BE directory
-      run: cd BE
+      working-directory: /BE
 
     - name: check now path
       run: pwd

@@ -25,6 +25,9 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
+    
+    - name: check now path
+      run: pwd
         
     - name: cd BE directory
       run: cd BE

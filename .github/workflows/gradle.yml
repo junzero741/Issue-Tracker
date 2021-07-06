@@ -35,4 +35,5 @@ jobs:
       
     - name: Build with Gradle
       working-directory: ./BE
-      run: ./gradlew clean build
+      run: ./gradle bootjar
+      #run: ./gradlew clean build

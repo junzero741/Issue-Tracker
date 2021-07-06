@@ -91,7 +91,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         aws deploy create-deployment \
-        --application-name issue-tracker-public \
+        --application-name issue-tracker \
         --deployment-group-name issue-deploy-group \
         --file-exists-behavior OVERWRITE \
         --s3-location bucket=cooper-issuetracker-build-bucket,bundleType=zip,key=springboot-intro-build.zip \

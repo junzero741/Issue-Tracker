@@ -31,9 +31,7 @@ jobs:
       
     - name: cd BE directory
       working-directory: /BE
-      run: |
-      pwd
-      ls -al
+      run: pwd
             
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew

@@ -31,7 +31,10 @@ jobs:
       
     - name: cd BE directory
       run: cd BE
-    
+
+    - name: check now path
+      run: pwd
+
     - name: lists segments
       run: ls -al
       

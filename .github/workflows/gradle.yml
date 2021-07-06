@@ -53,18 +53,18 @@ jobs:
     - name: Copy Jar
       run: |
         cp ./BE/build/libs/*.jar ./deploy/
-        
+        ls -al
         echo "build file을 deploy 디렉토리에 복사했습니다"
       
     # 압축파일 형태로 전달
     - name: Make zip file
       run: |
-        if [ -f "springboot-intro-build.zip"]; then
+        if [ -f "./springboot-intro-build.zip"]; then
           rm -rf ./springboot-intro-build.zip
-          
           echo "기존에 존재하는 zip파일을 삭제합니다."
         fi
         zip -r -qq -j ./springboot-intro-build.zip ./deploy
+        ls -al
         echo "build file을 압축합니다."
           
     # S3 Bucket으로 copy

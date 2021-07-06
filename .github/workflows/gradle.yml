@@ -27,7 +27,7 @@ jobs:
         distribution: 'adopt'
             
     - name: cd BE directory
-      run: cd BE
+      run: cd /BE
       
     - name: check now path
       run: pwd

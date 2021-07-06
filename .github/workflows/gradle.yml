@@ -25,12 +25,12 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
-            
-    - name: cd BE directory
-      run: cd /BE
-      
+                  
     - name: check now path
       run: pwd
+      
+    - name: cd BE directory
+      run: cd BE
     
     - name: lists segments
       run: ls -al

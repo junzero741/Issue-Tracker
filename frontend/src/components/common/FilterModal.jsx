@@ -146,9 +146,6 @@ const FilterModal = () => {
 		setQueryString(getQueryString(filterBarInput));
 	}, [filterBarInput]);
 
-	console.log("filterBarInput: ", filterBarInput);
-	console.log("qs: ", queryString);
-
 	return (
 		<FilterModalLayout
 			className="filter-modal"

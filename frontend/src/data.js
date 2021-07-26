@@ -1,39 +1,3 @@
-// import fetchData from "util/fetchData";
-// import API from "util/API";
-
-// const getUserList = async API => {
-// 	const { users } = await fetchData(API, "GET");
-// 	const idList = users.map(el => el.githubId);
-// 	return idList;
-// };
-
-// const getMilestoneList = async API => {
-// 	const { milestones } = await fetchData(API, "GET");
-// 	const milestoneList = milestones.map(el => el.title);
-// 	return milestoneList;
-// };
-
-// const getLabelList = async API => {
-// 	const { labels } = await fetchData(API, "GET");
-// 	const labelList = labels.map(el => el.name);
-// 	return labelList;
-// };
-
-// export const filterData = {
-// 	issue: [
-// 		"열린 이슈",
-// 		"내가 작성한 이슈",
-// 		"나에게 할당된 이슈",
-// 		"내가 댓글을 남긴 이슈",
-// 		"닫힌 이슈",
-// 	],
-// 	assignee: getUserList(API.users()),
-// 	label: getLabelList(API.labels()),
-// 	milestone: getMilestoneList(API.milestones()),
-// 	author: getUserList(API.users()),
-// 	openClose: ["선택된 이슈 열기", "선택된 이슈 닫기"],
-// };
-
 export const labelData = {
 	creatorTitle: "새로운 레이블 추가",
 	editorTitle: "레이블 편집",

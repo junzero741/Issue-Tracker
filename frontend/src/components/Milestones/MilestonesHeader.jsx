@@ -1,16 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { StyledGridTitleCard } from "styles/StyledCards";
-import theme from "styles/theme";
 
 const MilestonesHeader = ({ milestone }) => {
-	const [showOpenedOnes, setShowOpendOnes] = useState(true);
-	console.log("milestones:", milestone);
-
-	const getColor = () => {
-		return showOpenedOnes ? "#000000" : `${theme.grayScale.label}`;
-	};
-
 	return (
 		<StyledGridTitleCard gridRate={[1]}>
 			<Contents>

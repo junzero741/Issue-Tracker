@@ -2,10 +2,8 @@ const getFilteredData = (type, value, data) => {
 	if (type === "assignees") {
 		const result = data.forEach(x => {
 			const { assignees } = x;
-			console.log(assignees);
 			const assignee = assignees.forEach(x => {
 				if (x.githubId !== value) return false;
-				console.log(x.githubId);
 			});
 
 			const { githubId } = assignees;

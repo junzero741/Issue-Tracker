@@ -8,20 +8,21 @@ import {
 	issueListUpdateState,
 	issuesDataState,
 	openIssueFlagState,
+	filterBarInputState,
 } from "RecoilStore/Atoms";
 import API from "util/API";
 import fetchData from "util/fetchData";
 
 const IssueList = ({ filter }) => {
-	const [isAnyIssueSelected, setIsAnyIssueSelected] = useState(false); // 상태 위치 협의 후 수정
+	const [isAnyIssueSelected, setIsAnyIssueSelected] = useState(false);
 	const [isAllIssueSelected, setIsAllIssueSelected] = useState(false);
 	const [selectedCards, setSelectedCards] = useRecoilState(selectedCardsState);
 	const [issuesData, setIssues] = useRecoilState(issuesDataState);
 	const update = useRecoilValue(issueListUpdateState);
 	const openIssueFlag = useRecoilValue(openIssueFlagState);
+	const filterState = useRecoilValue(filterBarInputState);
 
 	const fetchIssueData = async () => {
-		//필터 body에 붙이는 거 되면 querystring분석해서 body에 넣어 보내기
 		const { issues } = await fetchData(API.issues(), "GET");
 		setIssues(issues);
 	};
@@ -29,9 +30,33 @@ const IssueList = ({ filter }) => {
 	useEffect(() => {
 		fetchIssueData();
 	}, [update]);
-	// 메인화면 띄워줄 이슈 필터링(0712) find/include/indexOf/customHook
+
 	const filteredIssueList = issuesData
 		?.filter(issue => issue.open === openIssueFlag)
+		.filter(issue => {
+			if (issue.assignees.length && filterState.assignee) {
+				for (let i = 0; i < issue.assignees.length; i++) {
+					if (issue.assignees[i].githubId === filterState.assignee) return true;
+				}
+			} else return true;
+		})
+		.filter(issue => {
+			if (issue.labels.length && filterState.label) {
+				for (let i = 0; i < issue.labels.length; i++) {
+					if (issue.labels[i].name === filterState.label) return true;
+				}
+			} else return true;
+		})
+		.filter(issue => {
+			if (filterState.milestone)
+				return issue.milestone.title === filterState.milestone;
+			else return true;
+		})
+		.filter(issue => {
+			if (filterState.author)
+				return issue.author.githubId === filterState.author;
+			else return true;
+		})
 		.map(issue => (
 			<IssueCard
 				key={issue.id}

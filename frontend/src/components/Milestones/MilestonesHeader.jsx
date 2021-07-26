@@ -14,7 +14,7 @@ const MilestonesHeader = ({ milestone }) => {
 	return (
 		<StyledGridTitleCard gridRate={[1]}>
 			<Contents>
-				<Title>{milestone.length}개의 마일스톤</Title>
+				<Title>{milestone && milestone.length}개의 마일스톤</Title>
 			</Contents>
 		</StyledGridTitleCard>
 	);
@@ -31,4 +31,5 @@ const Contents = styled.div`
 
 const Title = styled.div`
 	padding: ${({ theme }) => `0 ${theme.paddings.xxxl}`};
+	color: ${({ theme }) => theme.grayScale.label};
 `;

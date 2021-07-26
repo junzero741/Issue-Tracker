@@ -42,7 +42,7 @@ const Menu = () => {
 			</MenuLayout>
 			{queryString && (
 				<ClearFiltersButton onClick={handleClick}>
-					x clear current filter query
+					X clear current filter query
 				</ClearFiltersButton>
 			)}
 		</Wrapper>
@@ -70,6 +70,7 @@ const ClearFiltersButton = styled.button`
 	&:hover {
 		color: ${({ theme }) => theme.colors.blue};
 	}
+	color: ${({ theme }) => theme.grayScale.label};
 `;
 
 export default Menu;

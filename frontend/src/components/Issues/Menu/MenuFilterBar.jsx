@@ -10,12 +10,10 @@ import {
 } from "RecoilStore/Atoms";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
 const MenuFilterBar = () => {
-	const [isFilterClicked, setIsFilterClicked] = useRecoilState(
-		filterClickFlagState
-	);
+	const [isFilterClicked, setIsFilterClicked] =
+		useRecoilState(filterClickFlagState);
 	const setClickedFilterState = useSetRecoilState(clickedFilterState);
 	const filterBarInput = useRecoilValue(filterBarInputState);
-	console.log(filterBarInput);
 	const getFilterBarString = () => {
 		return Object.entries(filterBarInput).reduce((acc, [key, value]) => {
 			if (value) {
@@ -26,7 +24,7 @@ const MenuFilterBar = () => {
 		}, "");
 	};
 
-	const handleClick = e => {
+	const handleClick = (e) => {
 		isFilterClicked === false
 			? setIsFilterClicked(true)
 			: setIsFilterClicked(false);
@@ -40,7 +38,7 @@ const MenuFilterBar = () => {
 		};
 	}, [isFilterClicked]);
 
-	const closeFilterModal = e => {
+	const closeFilterModal = (e) => {
 		const target = e.target;
 		if (isFilterClicked && !target.closest(".filter-modal"))
 			setIsFilterClicked(false);

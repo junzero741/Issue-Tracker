@@ -1,21 +1,21 @@
 import fetchData from "util/fetchData";
 import API from "util/API";
 
-const getUserList = async API => {
+const getUserList = async (API) => {
 	const { users } = await fetchData(API, "GET");
-	const idList = users.map(el => el.githubId);
+	const idList = users.map((el) => el.githubId);
 	return idList;
 };
 
-const getMilestoneList = async API => {
+const getMilestoneList = async (API) => {
 	const { milestones } = await fetchData(API, "GET");
-	const milestoneList = milestones.map(el => el.title);
+	const milestoneList = milestones.map((el) => el.title);
 	return milestoneList;
 };
 
-const getLabelList = async API => {
+const getLabelList = async (API) => {
 	const { labels } = await fetchData(API, "GET");
-	const labelList = labels.map(el => el.name);
+	const labelList = labels.map((el) => el.name);
 	return labelList;
 };
 

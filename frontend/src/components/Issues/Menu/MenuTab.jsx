@@ -2,14 +2,18 @@ import styled from "styled-components";
 import ButtonGroup from "components/common/Button/ButtonGroup";
 import AddButton from "components/common/Button/BlueButtons";
 import { Link } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import {
 	labelButtonFlagState,
 	milestoneButtonFlagState,
+	labelCountState,
+	milestoneCountState,
 } from "RecoilStore/Atoms";
 const MenuTab = () => {
 	const setMilestoneFlag = useSetRecoilState(milestoneButtonFlagState);
 	const setLabelFlag = useSetRecoilState(labelButtonFlagState);
+	const labelCount = useRecoilValue(labelCountState);
+	const milestoneCount = useRecoilValue(milestoneCountState);
 
 	const handleMilestoneClick = () => {
 		setMilestoneFlag(true);
@@ -22,8 +26,8 @@ const MenuTab = () => {
 	return (
 		<Wrapper>
 			<ButtonGroup
-				milestoneCount={0}
-				labelCount={0}
+				milestoneCount={milestoneCount}
+				labelCount={labelCount}
 				milestoneClickEvent={handleMilestoneClick}
 				labelClickEvent={handleLabelClick}
 				ismainpage="true"

@@ -19,7 +19,7 @@ const LoginLoadingPage = () => {
 		getToken();
 	}, []);
 
-	return <>{isLogin ? <Redirect to="/main?open=true" /> : <>Loading..</>}</>;
+	return <>{isLogin ? <Redirect to="/main" /> : <>Loading..</>}</>;
 };
 
 export default LoginLoadingPage;

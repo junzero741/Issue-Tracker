@@ -3,16 +3,25 @@ import styled from "styled-components";
 import IssuesHeader from "./IssuesHeader";
 import IssueCard from "./IssueCard";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { selectedCardsState, issueListUpdateState } from "RecoilStore/Atoms";
+import {
+	selectedCardsState,
+	issueListUpdateState,
+	issuesDataState,
+	openIssueFlagState,
+	filterBarInputState,
+} from "RecoilStore/Atoms";
 import API from "util/API";
 import fetchData from "util/fetchData";
 
 const IssueList = ({ filter }) => {
-	const [isAnyIssueSelected, setIsAnyIssueSelected] = useState(false); // 상태 위치 협의 후 수정
+	const [isAnyIssueSelected, setIsAnyIssueSelected] = useState(false);
 	const [isAllIssueSelected, setIsAllIssueSelected] = useState(false);
 	const [selectedCards, setSelectedCards] = useRecoilState(selectedCardsState);
-	const [issuesData, setIssues] = useState();
+	const [issuesData, setIssues] = useRecoilState(issuesDataState);
 	const update = useRecoilValue(issueListUpdateState);
+	const openIssueFlag = useRecoilValue(openIssueFlagState);
+	const filterState = useRecoilValue(filterBarInputState);
+
 	const fetchIssueData = async () => {
 		const { issues } = await fetchData(API.issues(), "GET");
 		setIssues(issues);
@@ -23,7 +32,31 @@ const IssueList = ({ filter }) => {
 	}, [update]);
 
 	const filteredIssueList = issuesData
-		?.filter(issue => issue.open) // 메인화면 띄워줄 이슈 필터링(0712) find/include/indexOf/customHook
+		?.filter(issue => issue.open === openIssueFlag)
+		.filter(issue => {
+			if (issue.assignees.length && filterState.assignee) {
+				for (let i = 0; i < issue.assignees.length; i++) {
+					if (issue.assignees[i].githubId === filterState.assignee) return true;
+				}
+			} else return true;
+		})
+		.filter(issue => {
+			if (issue.labels.length && filterState.label) {
+				for (let i = 0; i < issue.labels.length; i++) {
+					if (issue.labels[i].name === filterState.label) return true;
+				}
+			} else return true;
+		})
+		.filter(issue => {
+			if (filterState.milestone)
+				return issue.milestone.title === filterState.milestone;
+			else return true;
+		})
+		.filter(issue => {
+			if (filterState.author)
+				return issue.author.githubId === filterState.author;
+			else return true;
+		})
 		.map(issue => (
 			<IssueCard
 				key={issue.id}

@@ -3,20 +3,27 @@ import { ReactComponent as Logo } from "images/LogotypeMedium.svg";
 import { Link } from "react-router-dom";
 import getUserInfo from "util/getUserInfo";
 import { categorySelectorState } from "RecoilStore/Atoms";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { queryStringState } from "RecoilStore/Atoms";
 const Header = () => {
 	const userInfo = getUserInfo();
 	const resetCategoryValue = useSetRecoilState(categorySelectorState);
-
+	const queryString = useRecoilValue(queryStringState);
 	const handleClick = () => {
 		resetCategoryValue();
 	};
 
 	return (
 		<StyleHeader onClick={handleClick}>
-			<Link to="/main?open=true">
-				<Logo />
-			</Link>
+			{queryString ? (
+				<Link to={`/main?${queryString}`}>
+					<Logo />
+				</Link>
+			) : (
+				<Link to="/main">
+					<Logo />
+				</Link>
+			)}
 			<ImgWrapper>
 				<img src={userInfo.imageUrl} alt={userInfo.gitHubId} />
 			</ImgWrapper>

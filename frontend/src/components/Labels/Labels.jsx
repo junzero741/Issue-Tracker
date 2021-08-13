@@ -36,7 +36,7 @@ const Labels = () => {
 
 	useEffect(() => {
 		getLabelData();
-	}, [forceUpdate]); //forceUpdate를 의존 배열에 넣음 대박!!
+	}, [forceUpdate]);
 
 	return (
 		<>

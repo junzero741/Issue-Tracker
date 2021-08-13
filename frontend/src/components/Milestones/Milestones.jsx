@@ -43,7 +43,7 @@ const Milestones = () => {
 			) : (
 				<></>
 			)}
-			<MilestonesHeader />
+			<MilestonesHeader milestone={milestone} />
 			{milestone &&
 				milestone.map((milestone, i) => (
 					<MilestoneCard key={i} data={milestone} />

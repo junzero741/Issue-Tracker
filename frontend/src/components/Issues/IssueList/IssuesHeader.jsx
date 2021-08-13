@@ -10,6 +10,7 @@ import {
 	selectedIssueCntState,
 	clickedFilterState,
 	filterClickFlagState,
+	openIssueFlagState,
 } from "RecoilStore/Atoms";
 
 const IssuesHeader = ({
@@ -28,7 +29,7 @@ const IssuesHeader = ({
 	const openIssueCnt = issuesData.filter(issue => issue.open).length;
 	const closedIssueCnt = issuesData.filter(issue => !issue.open).length;
 
-	//----------중복 코드from MeuFilter --------
+	//------------------
 	const [isFilterClicked, setIsFilterClicked] = useRecoilState(
 		filterClickFlagState
 	);
@@ -40,6 +41,7 @@ const IssuesHeader = ({
 
 		setClickedFilterState(e.currentTarget.value);
 	});
+	const setOpenIssueFlag = useSetRecoilState(openIssueFlagState);
 
 	useEffect(() => {
 		window.addEventListener("click", closeFilterModal);
@@ -57,7 +59,7 @@ const IssuesHeader = ({
 		)
 			setIsFilterClicked(false);
 	};
-	//----------여기 까지 중복 코드from MeuFilter --------/
+	//----------from MeuFilter --------/
 
 	const checkAllIssue = () => {
 		setIsAllIssueSelected(!isAllIssueSelected);
@@ -81,12 +83,18 @@ const IssuesHeader = ({
 			) : (
 				<FilterOpenClose>
 					<TextIconDivider>
-						<Alert stroke={theme.grayScale.title_active} /> 열린 이슈(
-						{openIssueCnt})
+						<Alert stroke={theme.grayScale.title_active} />
+						<Text onClick={() => setOpenIssueFlag(true)}>
+							열린 이슈(
+							{openIssueCnt})
+						</Text>
 					</TextIconDivider>
 					<TextIconDivider>
-						<Archive stroke={theme.grayScale.label} /> 닫힌 이슈(
-						{closedIssueCnt})
+						<Archive stroke={theme.grayScale.label} />
+						<Text onClick={() => setOpenIssueFlag(false)}>
+							닫힌 이슈(
+							{closedIssueCnt})
+						</Text>
 					</TextIconDivider>
 				</FilterOpenClose>
 			)}
@@ -147,7 +155,13 @@ const CheckBox = styled.div`
 `;
 
 const TextIconDivider = styled.div`
+	display: flex;
 	width: 100%;
+`;
+
+const Text = styled.div`
+	cursor: pointer;
+	padding-left: 10px;
 `;
 
 export default IssuesHeader;

@@ -48,7 +48,7 @@ const CommentInput = ({
 		if (commentEditMode)
 			await fetchData(API.commentId(commentId), "PUT", input);
 		else await fetchData(API.comment(), "POST", input);
-		setInput({
+		await setInput({
 			issueId,
 			content: "",
 		});
@@ -88,7 +88,7 @@ const CommentInput = ({
 							height={400}
 							placeholder="이슈 코멘트 입력"
 							onChange={handleOnChange}
-							value={input.content}
+							value={commentEditMode && input.content}
 						/>
 					</CommentInputWrapper>
 					<TextCounter>글자 수 : {inputTextCount}</TextCounter>

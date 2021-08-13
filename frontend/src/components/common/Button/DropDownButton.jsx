@@ -7,9 +7,8 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import FilterModal from "components/common/FilterModal";
 const DropDownButton = ({ text, clickEvent, width, border, radius }) => {
 	const clickedFilter = useRecoilValue(clickedFilterState);
-	const [isFilterClicked, setIsFilterClicked] = useRecoilState(
-		filterClickFlagState
-	);
+	const [isFilterClicked, setIsFilterClicked] =
+		useRecoilState(filterClickFlagState);
 	return (
 		<>
 			<TabButton

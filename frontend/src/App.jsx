@@ -22,7 +22,7 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<Switch>
 					<Route exact path="/" component={LoginPage} />
-					<PrivateRoute path="/main" component={MainPage} />
+					<Route path="/main" component={MainPage} />
 					<Route path="/login" component={LoginLoadingPage} />
 					<Route path="/main/milestones" component={Milestones} />
 					<Route path="/main/labels" component={Labels} />

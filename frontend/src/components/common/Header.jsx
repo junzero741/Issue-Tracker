@@ -6,7 +6,7 @@ import { categorySelectorState } from "RecoilStore/Atoms";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { queryStringState } from "RecoilStore/Atoms";
 const Header = () => {
-	const userInfo = getUserInfo();
+	// const userInfo = getUserInfo();
 	const resetCategoryValue = useSetRecoilState(categorySelectorState);
 	const queryString = useRecoilValue(queryStringState);
 	const handleClick = () => {
@@ -24,9 +24,9 @@ const Header = () => {
 					<Logo />
 				</Link>
 			)}
-			<ImgWrapper>
+			{/* <ImgWrapper>
 				<img src={userInfo.imageUrl} alt={userInfo.gitHubId} />
-			</ImgWrapper>
+			</ImgWrapper> */}
 		</StyleHeader>
 	);
 };

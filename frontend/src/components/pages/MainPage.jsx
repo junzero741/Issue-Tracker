@@ -17,7 +17,7 @@ const MainPage = ({ location }) => {
 	const { pathname } = window.location;
 	const queryString = useRecoilValue(queryStringState);
 
-	return localStorage.getItem("accessToken") ? (
+	return (
 		<MainPageLayout>
 			<Header pathName={pathname} />
 			{(pathname === "/main/labels" || pathname === "/main/milestones") && (
@@ -37,8 +37,6 @@ const MainPage = ({ location }) => {
 				<Route path="/main/*" component={NoMatch} />
 			</Switch>
 		</MainPageLayout>
-	) : (
-		<Redirect to="/" />
 	);
 };
 
